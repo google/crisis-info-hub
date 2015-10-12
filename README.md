@@ -1,58 +1,4 @@
-# Secure GAE Scaffold
-
-## Introduction
-----
-Please note: this is not an official Google product.
-
-This contains a boilerplate AppEngine application meant to provide a secure
-base on which to build additional functionality.  Structure:
-
-* / - top level directory for common files, e.g. app.yaml
-* /js - directory for uncompiled Javascript resources.
-* /src - directory for all source code
-* /static - directory for static content
-* /templates - directory for Django/Jinja2 templates your app renders.
-* /templates/soy - directory for Closure Templates your application uses.
-
-Javascript resources for your application can be written using Closure,
-and compiled by Google's Closure Compiler (detailed below in the dependencies
-section).
-
-The scaffold provides the following basic security guarantees by default through
-a set of base classes found in `src/base/handlers.py`.  These handlers:
-
-1. Set assorted security headers (Strict-Transport-Security, X-Frame-Options,
-   X-XSS-Protection, X-Content-Type-Options, Content-Security-Policy) with
-   strong default values to help avoid attacks like Cross-Site Scripting (XSS)
-   and Cross-Site Script Inclusion.  See  `_SetCommonResponseHeaders()` and
-   `SetAjaxResponseHeaders()`.
-1. Prevent the XSS-prone construction of HTML via string concatenation by
-   forcing the use of a template system (Django/Jinja2 supported).  The
-   template systems have non-contextual autoescaping enabled by default.
-   See the `render()`, `render_json()` methods in `BaseHandler` and
-   `BaseAjaxHandler`. For contextual autoescaping, you should use Closure
-   Templates in strict mode (<https://developers.google.com/closure/templates/docs/security>).
-1. Test for the presence of headers that guarantee requests to Cron or
-   Task endpoints are made by the AppEngine serving environment or an
-   application administrator.  See the `dispatch()` method in `BaseCronHandler`
-   and `BaseTaskHandler`.
-1. Verify XSRF tokens by default on authenticated requests using any verb other
-   that GET, HEAD, or OPTIONS.  See the `_RequestContainsValidXsrfToken()`
-   method for more information.
-
-In addition to the protections above, the scaffold monkey patches assorted APIs
-that use insecure or dangerous defaults (see `src/base/api_fixer.py`).
-
-Obviously no framework is perfect, and the flexibility of Python offers many
-ways for a motivated developer to circumvent the protections offered.  Under
-the assumption that developers are not malicious, using the scaffold should
-centralize many security mechanisms, provide safe defaults, and structure the
-code in a way that facilitates security review.
-
-Sample implementations can be found in `src/handlers.py`.  These demonstrate
-basic functionality, and should be removed / replaced by code specific to
-your application.
-
+# Info Hub
 
 ## Prerequisites
 ----
@@ -91,6 +37,13 @@ To install dependencies for unit testing:
 1. `sudo easy_install pip`
 1. `sudo pip install unittest2`
 
+## Configuration Setup
+----
+You need to provied some required information
+
+* App Engine ID (edit the file `config.json`)
+* Google Docs embed links (edit the file `js/app.js`)
+
 ## Scaffold Setup
 ----
 These instructions assume a working directory of the repository root.
@@ -106,26 +59,12 @@ Grunt users should also run:
 
 `npm install`
 
-### Testing
-To run unit tests:
-
-`python run_tests.py ~/bin/google_appengine src`
-
 ### Local Development
 To run the development appserver locally:
 
 1. `grunt clean`
 1. `grunt`
 1. `grunt appengine:run:app`
-
-Note that the development appserver will be running on a snapshot of code
-at the time you run it.  If you make changes, you can run the various Grunt
-tasks in order to propagate them to the local appserver.  For instance:
-
-`grunt copy` will refresh the source code (local and third party), static files,
-and templates.  You can run `grunt closureSoys` and/or `grunt closureBuilder`
-before `grunt copy` if you need to rebuild your Closure Templates or Closure
-Javascript.
 
 If you are not using Grunt, simply run:
 
@@ -145,18 +84,6 @@ every invocation.
 If you are not using Grunt, simply run:
 
 `util.sh -p <appid>`
-
-## Notes
-----
-Files in `js/` are compiled by the Closure Compiler (if available) and placed in
-`out/static/app.js`.
-
-Closure templates are compiled by the Closure Template Compiler (if available)
-and placed in `out/static/app.soy.js`.
-
-The `/static` and `/template` directories are replicated in `out/`, and the
-files in `src/` are rebased into `out/` (so `src/base/foo.py` becomes
-`out/base/foo.py`).
 
 
 ## Detailed Dependency Information

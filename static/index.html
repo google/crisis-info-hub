@@ -1,19 +1,58 @@
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Secure GAE Scaffold Application</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width" name="viewport">
+    <title>Information Hub</title>
+    <meta name="description" content="">
+
+    <style>
+      html, body { height: 100%;}
+      iframe { display: block }
+      ul>li:before { color: #fff; }
+      body {
+        background-color: #000;
+        max-width: 566.9pt;
+        padding: 0 10px;
+        margin: 5px;
+      }
+      .btn-print {
+        position: absolute;
+        top: 69px;
+        left: 210px;
+        width: 50%;
+        max-width: 167px;
+        height: 38px;
+        opacity: 0;
+        cursor: pointer;
+        display: none;
+      }
+      #container { margin-top: -23px; }
+      canvas { display: none; }
+
+      @media print and (color){
+        table { display: none; }
+        body {
+          background-color: #fff;
+        }          
+        p, 
+        span { 
+          color: #000!important; 
+          font-size: 13px!important; 
+        }
+        ul>li:before { color: #000; }
+        img { display: none; }
+        canvas { display: block; }
+      }
+    </style>
   </head>
-  <body>
-  <h1>Hello!</h1>
-  <p>Welcome to the secure Google AppEngine scaffold application.</p>
-  <p>These pages are meant to give you a brief tour of some of the security
-  features of the scaffold.  You can find more by reading the code,
-  starting with the bundled main.py.</p>
-  <p>In the meantime, though, click on the links below to find out a bit
-  more about the security features in action.</p>
-  <ul>
-    <li><a href="/xss">Cross-Site Scripting (XSS) protection</a></li>
-    <li><a href="/xssi">Cross-Site Script Inclusion (XSSI) protection</a></li>
-    <li><a href="/xsrf">Cross-Site Request Forgery (XSRF) protection</a></li>
-  </ul>
+  <body> 
+
+    <button class="btn-print" onClick="window.print()"></button>
+
+    <div id="container"></div>
+
+    <script src="/static/app.js" ></script>
   </body>
 </html>
