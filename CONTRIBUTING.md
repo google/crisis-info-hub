@@ -1,58 +1,52 @@
-# How to contribute #
+Want to contribute? Great! First, read this page (including the small print at the end).
 
-We'd love to accept your patches and contributions to this project.  There are
-a just a few small guidelines you need to follow.
+### Before you contribute
+Before we can use your code, you must sign the
+[Google Individual Contributor License Agreement](https://cla.developers.google.com/about/google-individual)
+(CLA), which you can do online. The CLA is necessary mainly because you own the
+copyright to your changes, even after your contribution becomes part of our
+codebase, so we need your permission to use and distribute your code. We also
+need to be sure of various other things—for instance that you'll tell us if you
+know that your code infringes on other people's patents. You don't have to sign
+the CLA until after you've submitted your code for review and a member has
+approved it, but you must do it before we can put your code into our codebase.
+Before you start working on a larger contribution, you should get in touch with
+us first through the issue tracker with your idea so that we can help out and
+possibly guide you. Coordinating up front makes it much easier to avoid
+frustration later on.
 
+### Code reviews
+All submissions, including submissions by project members, require review. We
+use Github pull requests for this purpose.
 
-## Contributor License Agreement ##
+#### For Crisis Info Hub team members
 
-Contributions to any Google project must be accompanied by a Contributor
-License Agreement.  This is not a copyright **assignment**, it simply gives
-Google permission to use and redistribute your contributions as part of the
-project.
+1. Make sure that you are [a member of the team](https://github.com/orgs/google/teams/crisis-info-hub). Ask @giencke to add you if you are not.
+1. Install hub commandline tool.
+    <br/>https://github.com/github/hub
+1. Create a new branch, prefixed with your username.
+   <br/>`$ git checkout -b $USER-your-new-feature`
+1. Make changes and commit. Repeat the step until you are ready for code review.
+   <br/>`$ git commit -a`
+1. Push your local changes to the remote repository.
+   <br/>`$ git push -u origin $USER-your-new-feature`
+1. Create a new pull request. (-i is optional, but strongly encouraged.)
+   <br/>`$ hub pull-request -i <issue #>`
+1. The pull request will be reviewed by one of the code reviewers (*) and
+   merged to the master branch after addressing reviewer's comments.
 
-  * If you are an individual writing original source code and you're sure you
-    own the intellectual property, then you'll need to sign an [individual
-    CLA][].
+#### For non-team members
 
-  * If you work for a company that wants to allow you to contribute your work,
-    then you'll need to sign a [corporate CLA][].
+1. Fork [google/crisis-info-hub project](https://github.com/google/crisis-info-hub) on Github.
+1. Make changes and push to your fork. Repeat the step until you are ready for code review.
+   <br/>`$ git commit -a`
+   <br/>`$ git push -u origin $YOUR_BRANCH`
+1. Create a new pull request.
+1. The pull request will be reviewed by one of the code reviewers (*) and
+   merged to the master branch after addressing reviewer's comments.
 
-You generally only need to submit a CLA once, so if you've already submitted
-one (even if it was for a different project), you probably don't need to do it
-again.
+### The small print
+Contributions made by corporations are covered by a different agreement than
+the one above, the
+[Software Grant and Corporate Contributor License Agreement](https://cla.developers.google.com/about/google-corporate).
 
-[individual CLA]: https://developers.google.com/open-source/cla/individual
-[corporate CLA]: https://developers.google.com/open-source/cla/corporate
-
-Once your CLA is submitted (or if you already submitted one for
-another Google project), make a commit adding yourself to the
-[AUTHORS][] and [CONTRIBUTORS][] files. This commit can be part
-of your first [pull request][].
-
-[AUTHORS]: AUTHORS
-[CONTRIBUTORS]: CONTRIBUTORS
-
-
-## Submitting a patch ##
-
-  1. It's generally best to start by opening a new issue describing the bug or
-     feature you're intending to fix.  Even if you think it's relatively minor,
-     it's helpful to know what people are working on.  Mention in the initial
-     issue that you are planning to work on that bug or feature so that it can
-     be assigned to you.
-
-  1. Follow the normal process of [forking][] the project, and setup a new
-     branch to work in.  It's important that each group of changes be done in
-     separate branches in order to ensure that a pull request only includes the
-     commits related to that bug or feature.
-
-  1. Do your best to have [well-formed commit messages][] for each change.
-     This provides consistency throughout the project, and ensures that commit
-     messages are able to be formatted properly by various git tools.
-
-  1. Finally, push the commits to your fork and submit a [pull request][].
-
-[forking]: https://help.github.com/articles/fork-a-repo
-[well-formed commit messages]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[pull request]: https://help.github.com/articles/creating-a-pull-request
