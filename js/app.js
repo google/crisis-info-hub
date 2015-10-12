@@ -25,15 +25,17 @@ app.DOC_LINKS = {
 /** Entry point for GAE scaffold application.*/
 app.main = function() {
   app.detectLanguage();
-  app.getLink();
-  app.getPage();
+  app.getPage(app.getLink());
 };
 
-/** Get the google doc */
-app.getPage = function() {
+/**
+ * Get the google doc.
+ * @param {string} the Docs link
+ */
+app.getPage = function(link) {
   var container_ = goog.dom.getElement('container');
 
-  goog.net.XhrIo.send(app.DEFAULT_LINK, function(e) {
+  goog.net.XhrIo.send(link, function(e) {
     var xhr = e.target;
     var obj = xhr.getResponseText();
     obj = goog.dom.htmlToDocumentFragment(obj);
@@ -43,35 +45,37 @@ app.getPage = function() {
   });
 };
 
-/** Use the hash to overide the doc link */
+/**
+ * Get the language-dependent link.
+ * @return {string}
+ */
 app.getLink = function() {
   var code = window.location.hash.replace('#', '');
   if (code === '') {
-    return;
+    return app.DEFAULT_LINK;
   }
 
   switch (code) {
     case 'pe':
-      app.DEFAULT_LINK = app.DOC_LINKS.pe;
-      break;
+      return app.DOC_LINKS.pe;
     case 'ar':
-      app.DEFAULT_LINK = app.DOC_LINKS.ar;
-      break;
+      return app.DOC_LINKS.ar;
     case 'gr':
-      app.DEFAULT_LINK = app.DOC_LINKS.gr;
-      break;
+      return app.DOC_LINKS.gr;
+    default:
+      return app.DEFAULT_LINK;
   }
 };
 
 /** Check the navigator language and changed the hash */
 app.detectLanguage = function() {
-  var lg = navigator.language.toLocaleLowerCase();
-
   if (window.location.hash !== '') {
     return;
   }
 
-  switch (lg) {
+  var navLanguage = navigator.language.toLocaleLowerCase();
+
+  switch (navLanguage) {
     case 'el':
     case 'el-gr':
       location.hash = '#gr';
