@@ -10,16 +10,16 @@ goog.require('goog.net.XhrIo');
 
 /** @type {string} */
 app.DEFAULT_LINK =
-    'https://docs.google.com/document/d/1EZfMuIj4yMNlc3Y6ctgmKjY26Vw1-sEwK5OpbuGRXSg/pub?embedded=true';
+    'https://docs.google.com/document/d/REPLACE_THIS!/pub?embedded=true';
 
 /** @enum {string} */
 app.DOC_LINKS = {
   gr:
-  'https://docs.google.com/document/d/1U572JBotajsc7cruRg7ZGijsN7opipBA2fw459DPMsc/pub?embedded=true',
+  'https://docs.google.com/document/d/REPLACE_THIS!/pub?embedded=true',
   ar:
-  'https://docs.google.com/document/d/1L8Y9dBL61bPt8ClYSO5yeScdy_fygR_34cS0Nya-Fs4/pub?embedded=true',
+  'https://docs.google.com/document/d/REPLACE_THIS!/pub?embedded=true',
   pe:
-  'https://docs.google.com/document/d/1LSDKoVmk6VarB1EMxf83KXHvtYBh4SmPpkkQ4XWpY5M/pub?embedded=true'
+  'https://docs.google.com/document/d/REPLACE_THIS!/pub?embedded=true'
 };
 
 /** Entry point for GAE scaffold application.*/
