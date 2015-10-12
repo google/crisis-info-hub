@@ -13,8 +13,6 @@
 #     limitations under the License.
 """Main application entry point."""
 
-import base.api_fixer
-
 import webapp2
 
 import base
