@@ -30,7 +30,7 @@ app.main = function() {
 
 /**
  * Get the google doc.
- * @param {string} the Docs link
+ * @param link {string} the Docs link
  */
 app.getPage = function(link) {
   var container_ = goog.dom.getElement('container');
