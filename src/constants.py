@@ -19,23 +19,6 @@ import os
 def _IsDevAppServer():
   return os.environ.get('SERVER_SOFTWARE', '').startswith('Development')
 
-# webapp2 application configuration constants.
-# template
-(DJANGO, JINJA2) = range(0, 2)
-
-# using_angular
-DEFAULT_ANGULAR = False
-
-# framing_policy
-(DENY, SAMEORIGIN, PERMIT) = range(0, 3)
-X_FRAME_OPTIONS_VALUES = {DENY: 'DENY', SAMEORIGIN: 'SAMEORIGIN'}
-
-# hsts_policy
-DEFAULT_HSTS_POLICY = {'max_age': 2592000, 'includeSubdomains': True}
-
-# csp_policy
-DEFAULT_CSP_POLICY = {'default-src': '\'self\''}
-
 # IS_DEV_APPSERVER is primarily used for decisions that rely on whether or
 # not the application is currently serving over HTTPS (dev_appserver does
 # not support HTTPS).
@@ -43,4 +26,3 @@ IS_DEV_APPSERVER = _IsDevAppServer()
 
 DEBUG = IS_DEV_APPSERVER
 
-TEMPLATE_DIR = os.path.sep.join([os.path.dirname(__file__), '..', 'templates'])

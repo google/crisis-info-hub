@@ -15,8 +15,7 @@
 
 import webapp2
 
-import base
-import base.constants
+import constants
 import handlers
 
 
@@ -40,7 +39,7 @@ _CONFIG = {
         # Fallback.
         'default-src': '\'self\' *.gstatic.com',
         'report-uri':  '/csp',
-        'reportOnly': base.constants.DEBUG,
+        'reportOnly': constants.DEBUG,
     }
 }
 
@@ -50,5 +49,5 @@ _CONFIG = {
 
 app = webapp2.WSGIApplication(
     routes=(_ROOT_ROUTE),
-    debug=base.constants.DEBUG,
+    debug=constants.DEBUG,
     config=_CONFIG)
