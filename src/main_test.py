@@ -45,49 +45,11 @@ class MainTest(unittest2.TestCase):
 
   def testRoutesInheritance(self):
     errors = ''
-    errors += self._VerifyInheritance(main._UNAUTHENTICATED_ROUTES,
-                                      handlers.BaseHandler)
-    errors += self._VerifyInheritance(main._UNAUTHENTICATED_AJAX_ROUTES,
-                                      handlers.BaseAjaxHandler)
-    errors += self._VerifyInheritance(main._USER_ROUTES,
-                                      handlers.AuthenticatedHandler)
-    errors += self._VerifyInheritance(main._AJAX_ROUTES,
-                                      handlers.AuthenticatedAjaxHandler)
-    errors += self._VerifyInheritance(main._ADMIN_ROUTES,
-                                      handlers.AdminHandler)
-    errors += self._VerifyInheritance(main._ADMIN_AJAX_ROUTES,
-                                      handlers.AdminAjaxHandler)
-    errors += self._VerifyInheritance(main._CRON_ROUTES,
-                                      handlers.BaseCronHandler)
-    errors += self._VerifyInheritance(main._TASK_ROUTES,
-                                      handlers.BaseTaskHandler)
+    errors += self._VerifyInheritance(main._ROOT_ROUTE,
+                                      handlers.RootHandler)
     if errors:
       self.fail('Some handlers do not inherit from the correct classes:\n' +
                 errors)
-
-  def testStrictHandlerMethodRouting(self):
-    """Checks that handler functions properly limit applicable HTTP methods."""
-    router = webapp2.Router(main._USER_ROUTES + main._AJAX_ROUTES +
-                            main._ADMIN_ROUTES + main._ADMIN_AJAX_ROUTES)
-    routes = router.match_routes + router.build_routes.values()
-    failed_routes = []
-    while routes:
-      route = routes.pop()
-      if issubclass(route.__class__, webapp2_extras.routes.MultiRoute):
-        routes += list(route.get_routes())
-        continue
-
-      if issubclass(route.handler, webapp2.RedirectHandler):
-        continue
-
-      if route.handler_method and not route.methods:
-        failed_routes.append('%s (%s)' % (route.template,
-                                          route.handler.__name__))
-
-    if failed_routes:
-      self.fail('Some handlers specify a handler_method but are missing a '
-                'methods" attribute and may be vulnerable to XSRF via GET '
-                'requests:\n * ' + '\n * '.join(failed_routes))
 
 
 if __name__ == '__main__':
