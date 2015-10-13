@@ -1,5 +1,5 @@
 /**
- * @fileoverview Entry point for GAE Scaffold application.
+ * @fileoverview Entry point for Crisis Info Hub.
  */
 
 goog.provide('app');
