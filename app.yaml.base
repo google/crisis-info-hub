@@ -58,3 +58,4 @@ skip_files:
          - .*_test.py
          - js/.*
          - closure-library/.*
+         - Gruntfile.js
