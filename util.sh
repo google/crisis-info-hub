@@ -1,5 +1,6 @@
 #!/bin/bash
-# Utility script for the secure GAE application scaffold.
+#
+# Utility script for the Crisis Info Hub app.
 
 die() {
   echo "FATAL: $@" 1>&2
