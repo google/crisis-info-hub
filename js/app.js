@@ -22,7 +22,7 @@ app.DOC_LINKS = {
   'https://docs.google.com/document/d/REPLACE_THIS!/pub?embedded=true'
 };
 
-/** Entry point for GAE scaffold application.*/
+/** Entry point for Crisis Info Hub.*/
 app.main = function() {
   app.detectLanguage();
   app.getPage(app.getLink());
