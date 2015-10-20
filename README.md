@@ -2,7 +2,7 @@
 
 Crisis Info Hub is a super lightweight content management system, based on Google Docs.
 
-Crisis Info Hub provides a templatized Google Doc, customizable to allow organizations and individuals to disseminate crisis-relevant information in a low-bandwidth way. A published version of this Google Doc is served through a Google App Engine instance, which provides additional functionality including translation and analytics. [Example](mercycorps-dot-refugee-crisis-beta.appspot.com)
+Crisis Info Hub provides a templatized Google Doc, customizable to allow organizations and individuals to disseminate crisis-relevant information in a low-bandwidth way. A published version of this Google Doc is served through a Google App Engine instance, which provides additional functionality including translation and analytics. [Example](http://mercycorps-dot-refugee-crisis-beta.appspot.com)
 
 
 ## Learning more about Crisis Info Hub
